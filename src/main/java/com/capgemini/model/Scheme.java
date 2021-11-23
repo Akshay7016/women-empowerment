@@ -1,9 +1,6 @@
 package com.capgemini.model;
 
-
-
 import java.time.LocalDate;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,9 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotEmpty;
+
 
 @Entity
 @Table(name="scheme")
@@ -25,19 +20,15 @@ public class Scheme {
 	private Integer schemeId;
 	
 	@Column(name="scheme_name", nullable =false)
-	@NotEmpty
 	private String schemeName;
 	
 	@Column(name="scheme_type", nullable= false)
-	@NotEmpty
 	private String schemeType;
 	
 	@Column(name="launch_date")
-//	@Temporal(TemporalType.DATE)
 	private LocalDate schemeLaunchDate;
 	
 	@Column(name="scheme_eligibility")
-	@NotEmpty
 	String schemeEligibility;
 	
 	@Column(name="scheme_objective")
@@ -50,8 +41,8 @@ public class Scheme {
 		super();
 	}
 
-	public Scheme(Integer schemeId, @NotEmpty String schemeName, @NotEmpty String schemeType, LocalDate schemeLaunchDate,
-			@NotEmpty String schemeEligibility, String schemeObjective) {
+	public Scheme(Integer schemeId, String schemeName, String schemeType, LocalDate schemeLaunchDate,
+		 String schemeEligibility, String schemeObjective) {
 		super();
 		this.schemeId = schemeId;
 		this.schemeName = schemeName;

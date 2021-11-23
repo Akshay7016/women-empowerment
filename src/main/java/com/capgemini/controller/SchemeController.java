@@ -6,6 +6,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -107,7 +109,7 @@ public class SchemeController {
 	// ------------------------------------------------------------------------------------------
 
 	@GetMapping("/viewbylaunchdate/{schemeLaunchDate}")
-	public ResponseEntity<List<Scheme>> getSchemeByLaunchDate(@PathVariable(name="schemeLaunchDate") LocalDate schemeLaunchDate) {
+	public ResponseEntity<List<Scheme>> getSchemeByLaunchDate(@PathVariable(name="schemeLaunchDate") @DateTimeFormat(iso=ISO.DATE) LocalDate schemeLaunchDate) {
 		LOG.info("Controller getSchemeByType");
 		List<Scheme> sch = iSchemeService.viewSchemeByLaunchDate(schemeLaunchDate);
 		HttpHeaders headers = new HttpHeaders();
