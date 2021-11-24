@@ -37,7 +37,7 @@ public class SchemeController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("message", "Scheme added successfully.");
 		LOG.info(headers.toString());
-		ResponseEntity<Scheme> response = new ResponseEntity<>(sch, headers, HttpStatus.OK);
+		ResponseEntity<Scheme> response = new ResponseEntity<>(sch, headers, HttpStatus.CREATED);
 		return response;
 	}
 
