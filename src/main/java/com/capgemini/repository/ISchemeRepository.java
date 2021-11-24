@@ -15,6 +15,8 @@ public interface ISchemeRepository extends JpaRepository<Scheme, Integer>{
 	
 	public abstract List<Scheme> findBySchemeLaunchDate(LocalDate schemeLaunchDate);
 	
+	public abstract List<Scheme> findBySchemeEligibility(String schemeEligibility);
+	
 //	public abstract Scheme addScheme(Scheme scheme);
 
 //	Scheme updateScheme(Scheme scheme);

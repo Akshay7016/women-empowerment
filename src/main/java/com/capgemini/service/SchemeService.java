@@ -107,4 +107,16 @@ public class SchemeService implements ISchemeService {
 		else
 			throw new SchemeNotFoundException("Scheme with launch date \" " + date + "\" not found.");
 	}
+
+	// -------------------------------------------------------------------------------------------
+
+	@Override
+	public List<Scheme> viewSchemesByEligibility(String schemeEligibility) {
+		LOG.info("Service viewSchemesByEligibility");
+		List<Scheme> schemeOpt = iSchemeRepository.findBySchemeEligibility(schemeEligibility);
+		if (!schemeOpt.isEmpty())
+			return schemeOpt;
+		else
+			throw new SchemeNotFoundException("Scheme with eligibility \" " + schemeEligibility + "\" not found.");
+	}
 }

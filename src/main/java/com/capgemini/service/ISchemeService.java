@@ -21,4 +21,6 @@ public interface ISchemeService  {
 	public List<Scheme> viewSchemesByType(String schemeType);
 
 	public List<Scheme> viewSchemeByLaunchDate(LocalDate date);
+	
+	public List<Scheme> viewSchemesByEligibility(String schemeEligibility);
 }

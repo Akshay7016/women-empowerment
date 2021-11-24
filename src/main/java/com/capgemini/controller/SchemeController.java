@@ -118,4 +118,17 @@ public class SchemeController {
 		ResponseEntity<List<Scheme>> response = new ResponseEntity<>(sch, headers, HttpStatus.OK);
 		return response;
 	}
+	
+	// ------------------------------------------------------------------------------------------
+
+		@GetMapping("/viewbyeligibility/{schemeEligibility}")
+		public ResponseEntity<List<Scheme>> getSchemeByEligibility(@PathVariable(name="schemeEligibility") String schemeEligibility) {
+			LOG.info("Controller getSchemeByEligibility");
+			List<Scheme> sch = iSchemeService.viewSchemesByEligibility(schemeEligibility);
+			HttpHeaders headers = new HttpHeaders();
+			headers.add("message", "Schemes with eligibility \"" + schemeEligibility + "\" retrieved from database.");
+			LOG.info(headers.toString());
+			ResponseEntity<List<Scheme>> response = new ResponseEntity<>(sch, headers, HttpStatus.OK);
+			return response;
+		}
 }
